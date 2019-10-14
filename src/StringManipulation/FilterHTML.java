@@ -27,7 +27,6 @@ public class FilterHTML {
         Create insert = new Create();
         String[] list = words.trim().split("\\s+");
         HashSet<String> mySet = new HashSet<>(Arrays.asList(list));
-
         HashMap<String, Integer> countWords = new HashMap<>();
         for (String string : mySet) {
             int counter = 0;
@@ -36,15 +35,16 @@ public class FilterHTML {
                     ++counter;
                 }
             }
-
-            countWords.put(string, counter);
-//            System.out.println(string +" : "+counter);
-//            this.insertData(string, counter);
-              insert.insertData(words, counter);
             
+            countWords.put(string, counter);
+            insert.InsertData(words, counter, "Usc");
         }
         return countWords;
     }
-
     
+    public String showWords(){
+       Create retrieve = new Create();
+       retrieve.RetrieveData();
+       return null;
+    }
 }

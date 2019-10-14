@@ -8,9 +8,9 @@ package JFrame;
 
 import StringManipulation.FilterHTML;
 import java.awt.List;
-import java.io.File; 
+//import java.io.File; 
 import java.util.HashMap;
-import javax.swing.JFileChooser;
+//import javax.swing.JFileChooser;
 
 /**
  *
@@ -35,60 +35,29 @@ public class RemoveHTMLTags extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        AddHTML = new javax.swing.JButton();
-        WordCounterButton = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        CountedWords = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
         OriginalText = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         FilteredText = new javax.swing.JTextArea();
         RemoveHTMLButton1 = new javax.swing.JButton();
+        WordCounterButton = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        CountedWords = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        showWords = new javax.swing.JTextPane();
+        RetrieveWords = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        AddHTML.setText("Add HTML");
-        AddHTML.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                AddHTMLMouseClicked(evt);
-            }
-        });
-        AddHTML.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddHTMLActionPerformed(evt);
-            }
-        });
-
-        WordCounterButton.setText("Count Words");
-        WordCounterButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                WordCounterButtonActionPerformed(evt);
-            }
-        });
-
-        CountedWords.setColumns(20);
-        CountedWords.setRows(5);
-        jScrollPane3.setViewportView(CountedWords);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(AddHTML)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(WordCounterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 10, Short.MAX_VALUE))
-            .addComponent(jScrollPane3)
+            .addGap(0, 187, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AddHTML, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(WordCounterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(0, 641, Short.MAX_VALUE)
         );
 
         OriginalText.setColumns(20);
@@ -111,53 +80,83 @@ public class RemoveHTMLTags extends javax.swing.JFrame {
             }
         });
 
+        WordCounterButton.setText("Count Words");
+        WordCounterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                WordCounterButtonActionPerformed(evt);
+            }
+        });
+
+        CountedWords.setColumns(20);
+        CountedWords.setRows(5);
+        jScrollPane3.setViewportView(CountedWords);
+
+        jScrollPane4.setViewportView(showWords);
+
+        RetrieveWords.setText("Show words");
+        RetrieveWords.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RetrieveWordsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(RemoveHTMLButton1))
-                .addContainerGap(61, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(143, 143, 143)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(RemoveHTMLButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addContainerGap())
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(RetrieveWords)
+                                            .addComponent(WordCounterButton))
+                                        .addGap(31, 31, 31))))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(RemoveHTMLButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(WordCounterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(RetrieveWords, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane3))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addComponent(jScrollPane2)))
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(142, 142, 142)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 985, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void AddHTMLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddHTMLActionPerformed
-        
-    }//GEN-LAST:event_AddHTMLActionPerformed
-
-    private void AddHTMLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddHTMLMouseClicked
-//        JFileChooser fc = new JFileChooser();
-//        fc.setCurrentDirectory(new File(System.getProperty("Z:\\bigdata\\school_files")));
-//        int result = fc.showOpenDialog(parent);
-//        if (result == JFileChooser.APPROVE_OPTION) {
-//            File selectedFile = fc.getSelectedFile();
-//        }
-    }//GEN-LAST:event_AddHTMLMouseClicked
 
     private void RemoveHTMLButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveHTMLButton1MouseClicked
         String orig = OriginalText.getText();
@@ -173,10 +172,14 @@ public class RemoveHTMLTags extends javax.swing.JFrame {
     private void WordCounterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WordCounterButtonActionPerformed
         String a = FilteredText.getText();
         FilterHTML f = new FilterHTML();
-        HashMap<String, Integer> b = f.countWords(a); 
+        HashMap<String, Integer> b = f.countWords(a);
         CountedWords.setText(b.toString());
-        
     }//GEN-LAST:event_WordCounterButtonActionPerformed
+
+    private void RetrieveWordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RetrieveWordsActionPerformed
+        FilterHTML f = new FilterHTML();
+        showWords.setText(f.showWords());
+    }//GEN-LAST:event_RetrieveWordsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -214,15 +217,17 @@ public class RemoveHTMLTags extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AddHTML;
     private javax.swing.JTextArea CountedWords;
     private javax.swing.JTextArea FilteredText;
     private javax.swing.JTextArea OriginalText;
     private javax.swing.JButton RemoveHTMLButton1;
+    private javax.swing.JButton RetrieveWords;
     private javax.swing.JButton WordCounterButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTextPane showWords;
     // End of variables declaration//GEN-END:variables
 }

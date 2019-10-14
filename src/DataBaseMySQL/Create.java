@@ -17,18 +17,16 @@ import java.sql.Statement;
 public class Create implements CRUD {
     
     @Override
-    public void insertData(String word, int count) {
-        System.out.println("db test");
+    public void InsertData(String word, int count,String school){
         final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
         final String DB_URL = "jdbc:mysql://localhost/word_counter";
         final String USER = "root";
         final String PASS = "";
         Connection conn = null;
         Statement stmt = null;
-        String querySched;
+        String querySched; 
 
-        querySched = String.format("INSERT INTO `test` (word,count) "
-                + "VALUES ('%s','%d')", word, count);
+        querySched = String.format("INSERT INTO `test` (word,count,school) " + "VALUES ('%s','%d','%s')", word, count,school);
         try {
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             stmt = conn.createStatement();
@@ -41,17 +39,17 @@ public class Create implements CRUD {
     }
 
     @Override
-    public void Delete(String word, int count) {
+    public void DeleteData(String word, int count) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void Retrieve(String word, int count) {
+    public String RetrieveData() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void Update(String word, int count) {
+    public void UpdateData(String word, int count) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

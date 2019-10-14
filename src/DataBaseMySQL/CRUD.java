@@ -11,9 +11,9 @@ package DataBaseMySQL;
  */
 public interface CRUD {
     
-    public void Create(String word, int count);
-    public void Delete(String word, int count);
-    public void Retrieve(String word, int count);
-    public void Update(String word, int count);
+    public void InsertData(String word, int count, String school);
+    public void DeleteData(String word, int count);
+    public String RetrieveData();
+    public void UpdateData(String word, int count);
     
 }
