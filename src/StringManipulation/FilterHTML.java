@@ -5,7 +5,6 @@
  */
 package StringManipulation;
 
-
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -17,7 +16,6 @@ import DataBaseMySQL.Create;
  */
 public class FilterHTML {
 
-    
     public String removeHTMLtags(String tags) {
         tags = tags.replaceAll("\\<[^>]*>", "");
         return tags;
@@ -35,16 +33,11 @@ public class FilterHTML {
                     ++counter;
                 }
             }
-            
+
             countWords.put(string, counter);
             insert.InsertData(words, counter, "Usc");
         }
         return countWords;
     }
-    
-    public String showWords(){
-       Create retrieve = new Create();
-       retrieve.RetrieveData();
-       return null;
-    }
+
 }

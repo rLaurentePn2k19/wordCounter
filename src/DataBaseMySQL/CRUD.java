@@ -13,7 +13,7 @@ public interface CRUD {
     
     public void InsertData(String word, int count, String school);
     public void DeleteData(String word, int count);
-    public String RetrieveData();
+    public Object[][] RetrieveData();
     public void UpdateData(String word, int count);
     
 }

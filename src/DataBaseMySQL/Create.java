@@ -24,13 +24,13 @@ public class Create implements CRUD {
         final String PASS = "";
         Connection conn = null;
         Statement stmt = null;
-        String querySched; 
+        String insertQuery; 
 
-        querySched = String.format("INSERT INTO `test` (word,count,school) " + "VALUES ('%s','%d','%s')", word, count,school);
+        insertQuery = String.format("INSERT INTO `test` (word,count,school) " + "VALUES ('%s','%d','%s')", word, count,school);
         try {
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             stmt = conn.createStatement();
-            int result = stmt.executeUpdate(querySched);
+            int result = stmt.executeUpdate(insertQuery);
             System.out.println(result);
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -44,7 +44,7 @@ public class Create implements CRUD {
     }
 
     @Override
-    public String RetrieveData() {
+    public Object[][] RetrieveData() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

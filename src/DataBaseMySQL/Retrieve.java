@@ -7,6 +7,7 @@ package DataBaseMySQL;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -16,26 +17,38 @@ import java.sql.Statement;
  */
 public class Retrieve implements CRUD {
 
+    public Retrieve() {
+    }
+
     @Override
-    public String RetrieveData() {
+    public Object[][] RetrieveData() {
+        Object[][] data = new Object[1000][4];
         final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
         final String DB_URL = "jdbc:mysql://localhost/word_counter";
         final String USER = "root";
         final String PASS = "";
         Connection conn = null;
         Statement stmt = null;
-        String querySched;
-
-        querySched = String.format("SELECT word from `test` WHERE count > 10");
+        String retrieveQuery;
+        retrieveQuery = String.format("SELECT * from `test`");
         try {
+            int cols = 0;
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             stmt = conn.createStatement();
-            int result = stmt.executeUpdate(querySched);
-            System.out.println(result);
+            ResultSet rs = stmt.executeQuery(retrieveQuery);
+            System.out.println(rs);
+            while (rs.next()) {
+                data[cols][0] = rs.getInt("id");
+                data[cols][1] = rs.getString("word");
+                data[cols][2] = rs.getInt("count");
+                data[cols][3] = rs.getString("school");
+                ++cols;
+            }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
+            String checkQuery = "Select word from `test`";
         }
-        return null;
+        return data;
     }
 
     @Override
