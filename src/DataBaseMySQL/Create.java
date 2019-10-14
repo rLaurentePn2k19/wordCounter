@@ -26,7 +26,7 @@ public class Create implements CRUD {
         Statement stmt = null;
         String insertQuery; 
 
-        insertQuery = String.format("INSERT INTO `test` (word,count,school) " + "VALUES ('%s','%d','%s')", word, count,school);
+        insertQuery = String.format("INSERT INTO `wordCounter` (word,count,school) " + "VALUES ('%s','%d','%s')", word, count,school);
         try {
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             stmt = conn.createStatement();

@@ -22,7 +22,7 @@ public class Retrieve implements CRUD {
 
     @Override
     public Object[][] RetrieveData() {
-        Object[][] data = new Object[1000][4];
+        Object[][] data = new Object[500][4];
         final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
         final String DB_URL = "jdbc:mysql://localhost/word_counter";
         final String USER = "root";
@@ -30,7 +30,7 @@ public class Retrieve implements CRUD {
         Connection conn = null;
         Statement stmt = null;
         String retrieveQuery;
-        retrieveQuery = String.format("SELECT * from `test`");
+        retrieveQuery = String.format("SELECT * from `wordCounter`");
         try {
             int cols = 0;
             conn = DriverManager.getConnection(DB_URL, USER, PASS);

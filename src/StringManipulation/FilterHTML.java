@@ -26,16 +26,15 @@ public class FilterHTML {
         String[] list = words.trim().split("\\s+");
         HashSet<String> mySet = new HashSet<>(Arrays.asList(list));
         HashMap<String, Integer> countWords = new HashMap<>();
-        for (String string : mySet) {
+        for (String unique_string : mySet) {
             int counter = 0;
             for (String test_string : list) {
-                if (string.equals(test_string)) {
+                if (unique_string.equals(test_string)) {
                     ++counter;
                 }
             }
-
-            countWords.put(string, counter);
-            insert.InsertData(words, counter, "Usc");
+            countWords.put(unique_string, counter);
+            insert.InsertData(unique_string, counter, "Usc");
         }
         return countWords;
     }
